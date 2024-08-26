@@ -1,0 +1,72 @@
+.main-form {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #252525;
+    color: #383838;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.left-form, .right-form {
+    position: absolute;
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.left-form {
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.right-form {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 0;
+}
+
+.left-form.hidden {
+    opacity: 0;
+    transform: translateX(-100%);
+    z-index: 0;
+}
+
+.right-form.visible {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+.card {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 45px;
+    background-color: #363636;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card > h1 {
+    color: #BB86FC;
+    font-weight: 800;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.second-label {
+    color: #03DAC5;
+    cursor: pointer;
+}
+
+.first-label {
+    color: #f0ffffde;
+}
