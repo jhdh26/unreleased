@@ -15,8 +15,17 @@ header {
     display: flex;
     justify-content: center;
     gap: 80px;
-    margin: 25px 90px;
+    margin: 25px 60px;
     font-size: 20px;
+}
+
+.right-header a {
+    color: #BB86FC;;
+    text-decoration: none; 
+}
+
+.right-header a:hover {
+    text-decoration: underline;
 }
 
 .left-header{
@@ -30,10 +39,7 @@ header {
 }
 
 .icon-search{
-    display: flex;
-    align-items: center;
-    font-size: 25px;
-    padding-right: 20px;
+    font-size: 20px;
 }
 
 
