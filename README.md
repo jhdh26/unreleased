@@ -1,1 +1,1 @@
-a new system of parts rental !!
+a new system of parts rental !
