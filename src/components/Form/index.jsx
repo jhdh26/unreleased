@@ -13,7 +13,7 @@ const Form = () => {
     return (
         <div className="main-form">
             <div className={`left-form ${isLoginVisible ? 'hidden' : ''}`}>
-                <div className="card">
+                <div className="register-card">
                     <h1>REGISTRO</h1>
                     <InputText
                         label='Email'
@@ -42,7 +42,7 @@ const Form = () => {
                 </div>
             </div>
             <div className={`right-form ${isLoginVisible ? 'visible' : ''}`}>
-                <div className="card">
+                <div className="register-card">
                     <h1>LOGIN</h1>
                     <InputText
                         label='Email'

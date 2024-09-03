@@ -1,0 +1,35 @@
+.main-alugar {
+    width: 100vw;
+    height: 100vh;
+    background-color: #252525;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+}
+
+.cards {
+    border-radius: 8px;
+    background-color: #363636;
+    width: 59vw;
+    padding: 20px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+
+
+

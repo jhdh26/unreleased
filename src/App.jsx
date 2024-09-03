@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './components/Header'
 import Login from './pages/Login'
+import Alugar from './pages/Alugar'
+import Vender from './pages/Vender'
 
 function App() {
   return (
@@ -9,10 +11,9 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path='/' element=""/>
-          <Route path='login' element={<Login/>}/>
-          <Route path='asdasd' element=""/>
-          <Route path='dasdasd' element=""/>
+          <Route path='vender' element={<Vender/>} />
+          <Route path='login' element={<Login />} />
+          <Route path='alugar' element={<Alugar />} />
         </Routes>
       </BrowserRouter>
     </div>
