@@ -43,3 +43,8 @@
 .card .footer h1{
     font-size: 20px;
 }
+
+.button:hover {
+    background-color: #725d8a;
+
+}

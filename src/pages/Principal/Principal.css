@@ -1,0 +1,112 @@
+.main-principal{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #252525;
+}
+
+.principal{
+    text-align: center;
+}
+
+.principal > h2{
+    color: #bb86fc;;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+.principal > h1{
+    color: white;
+    text-transform: uppercase;
+    font-size: 80px;
+}
+
+.principal > button{
+    margin: 20px;
+    width: 25vh;
+    height: 10vh;
+    border: none;
+    border-radius: 50px;
+    text-transform: uppercase;
+    background-color: #03DAC5;
+    cursor: pointer;
+}
+
+.principal > button:hover{
+    background-color: #048073;
+}
+
+.secundaria{
+    padding: 250px;
+    display: flex;
+    gap: 50px;  
+}
+
+.div-alugar-main{
+    text-align: center;
+}
+
+.div-alugar-main > h2{
+    color: #bb86fc;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.div-alugar-main > h1{
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 40px;
+    margin-top: 10px;
+}
+
+.div-alugar{
+    display: flex;
+}
+
+.hammer{
+    width: 500px;
+}
+
+.icon-styles{
+    font-size: 60px;
+}
+
+.middle-banner{
+    background-color: #03DAC5;
+    width: 70vw;
+    height: 20vh;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.first-text-middle-banner{
+    margin: auto 0;
+    text-align: center;
+}
+
+.first-text-middle-banner > h1{
+    color: black;
+    text-transform: uppercase;
+    font-size: 50px;
+}
+
+.first-text-middle-banner > p{
+    font-size: 18px;
+    color: grey;
+}
+
+.second-text-middle-banner {
+    margin: auto 0;
+    text-align: center;
+}
+
+.second-text-middle-banner > h1 {
+    font-size: 50px;
+    color: black;
+    text-transform: uppercase;
+}
+
+.second-text-middle-banner > p {
+    font-size: 18px;
+    color: grey;
+}

@@ -2,7 +2,7 @@ import './Vender.css'
 
 const Vender = () =>{
     return(
-        <div className="main">
+        <div className="main-vender">
 
         </div>
     )

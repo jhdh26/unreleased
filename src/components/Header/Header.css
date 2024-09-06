@@ -3,6 +3,7 @@
     color: #BB86FC;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     height: 72px;
+    text-transform: uppercase;
 }
 
 header {
@@ -31,6 +32,17 @@ header {
 .left-header{
     margin-right: auto;
     padding-left: 24px;
+    font-size: 20px;
+    margin: 25px 10px;
+}
+
+.left-header a{
+    color: #bb86fc;
+    text-decoration: none;
+}
+
+.left-header a:hover {
+    text-decoration: underline;
 }
 
 .left-header > h1{

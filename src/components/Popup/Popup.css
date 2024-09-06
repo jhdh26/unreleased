@@ -1,0 +1,9 @@
+.popup{
+    padding: 50px;
+    color: aliceblue;
+    font-size: 15px;
+}
+
+.popup h1{
+    text-transform: uppercase;
+}

@@ -14,14 +14,12 @@
     box-shadow: 0px 10px 40px -12px #BB86FC;
 }
 
-/* Para telas maiores (desktop) */
 @media (min-width: 768px) {
     .button {
         padding: 16px 100px;
     }
 }
 
-/* Para telas muito grandes (desktop widescreen) */
 @media (min-width: 1200px) {
     .button {
         padding: 16px 150px;
