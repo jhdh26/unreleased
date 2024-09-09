@@ -1,21 +1,37 @@
 .main-principal{
     width: 100vw;
     min-height: 100vh;
-    background-color: #252525;
 }
 
 .principal{
     text-align: center;
+    padding: 100px;
+    position: relative;
+}
+
+.principal::before{
+    content: '';
+    background-image: url(../../assets/betoneira.png);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    filter: blur(5px);
+    filter: contrast(40%);
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
 }
 
 .principal > h2{
-    color: #bb86fc;;
+    color: #2e2e2e;
     text-transform: uppercase;
     font-size: 40px;
 }
 
 .principal > h1{
-    color: white;
+    color: #E1BB80;
     text-transform: uppercase;
     font-size: 80px;
 }
@@ -27,18 +43,15 @@
     border: none;
     border-radius: 50px;
     text-transform: uppercase;
-    background-color: #03DAC5;
+    background-color: #E1BB80;
+    color: white;
     cursor: pointer;
-}
-
-.principal > button:hover{
-    background-color: #048073;
 }
 
 .secundaria{
     padding: 250px;
     display: flex;
-    gap: 50px;  
+    gap: 50px;
 }
 
 .div-alugar-main{
@@ -46,13 +59,13 @@
 }
 
 .div-alugar-main > h2{
-    color: #bb86fc;
+    color: #2e2e2e;
     text-transform: uppercase;
     font-size: 20px;
 }
 
 .div-alugar-main > h1{
-    color: rgb(255, 255, 255);
+    color: #E1BB80;
     text-transform: uppercase;
     font-size: 40px;
     margin-top: 10px;
@@ -71,7 +84,7 @@
 }
 
 .middle-banner{
-    background-color: #03DAC5;
+    background-color: #E1BB80;
     width: 70vw;
     height: 20vh;
     margin: 0 auto;
@@ -85,14 +98,14 @@
 }
 
 .first-text-middle-banner > h1{
-    color: black;
+    color: white;
     text-transform: uppercase;
     font-size: 50px;
 }
 
 .first-text-middle-banner > p{
     font-size: 18px;
-    color: grey;
+    color: #2e2e2e;
 }
 
 .second-text-middle-banner {
@@ -102,11 +115,35 @@
 
 .second-text-middle-banner > h1 {
     font-size: 50px;
-    color: black;
+    color: white;
     text-transform: uppercase;
 }
 
 .second-text-middle-banner > p {
     font-size: 18px;
-    color: grey;
+    color: #2e2e2e;
 }
+
+.thirty-banner{
+    text-align: center;
+}
+
+.thirty-banner > h1{
+    text-transform: uppercase;
+    color: #E1BB80;
+    padding-top: 20px;
+}
+
+.thirty-banner > h2 {
+    color: #2e2e2e;
+    padding-top: 20px;
+}
+
+.catalog{
+    display: flex;
+    gap: 100px;
+    padding-top: 30px;
+    justify-content: center;
+}
+
+

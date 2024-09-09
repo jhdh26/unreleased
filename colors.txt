@@ -1,0 +1,5 @@
+azul = 0fa3b1 / branco
+branco = white / preto
+grafite = 2e2e2e / roxo
+amarelo = E1BB80
+B3B3F1

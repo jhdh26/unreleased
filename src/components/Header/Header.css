@@ -1,6 +1,6 @@
 .main-header {
-    background-color: #363636;
-    color: #BB86FC;
+    background-color: #E1BB80;
+    color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     height: 72px;
     text-transform: uppercase;
@@ -21,7 +21,7 @@ header {
 }
 
 .right-header a {
-    color: #BB86FC;;
+    color: white;
     text-decoration: none; 
 }
 
@@ -37,7 +37,7 @@ header {
 }
 
 .left-header a{
-    color: #bb86fc;
+    color: white;
     text-decoration: none;
 }
 

@@ -9,7 +9,7 @@ const Card = (props) => {
             <div className='footer'>
                 <h4>{props.nome}</h4>
                 <h5>{props.categoria}</h5>
-                <h1>Alugar</h1>
+                <button className='rent-button' onClick={props.onClick}>Alugar</button>
             </div>
         </div>
     )

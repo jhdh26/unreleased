@@ -1,10 +1,21 @@
 import './Principal.css'
 import Popup from '../../components/Popup'
+import Card from '../../components/Card'
 import { IoNewspaperOutline } from "react-icons/io5";
 import { VscTools } from "react-icons/vsc";
 import { GiCommercialAirplane } from "react-icons/gi";
+import betoneira from "../../assets/betoneira.png"
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Principal = () => {
+
+    const navigate = useNavigate()
+
+    const onButtonHandle = () => {
+        navigate('/alugar')
+    }
+
     return (
         <div className='main-principal'>
             <div className='principal'>
@@ -44,6 +55,32 @@ const Principal = () => {
                     <h1>+18 mil</h1>
                     <p>Clientes satisfeitos</p>
                 </div>
+            </div>
+            <div className="thirty-banner">
+                <h1>Veja nosso catalogo</h1>
+                <h2> Abaixo:</h2>
+                <div className='catalog'>
+                    <Card
+                        onClick={onButtonHandle}
+                        imagem='https://github.com/jhdh26.png'
+                        nome='João'
+                        categoria=''
+                    />
+                    <Card
+                        onClick={onButtonHandle}
+                        imagem='https://github.com/jhdh26.png'
+                        nome='João'
+                        categoria=''
+                    />
+                    <Card
+                        onClick={onButtonHandle}
+                        imagem='https://github.com/jhdh26.png'
+                        nome='João'
+                        categoria=''
+                    />
+                </div>
+                <h1>Veja mais a baixo:</h1>
+                <Link to='alugar'>Alugar</Link>
             </div>
         </div>
     )
