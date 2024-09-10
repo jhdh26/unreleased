@@ -11,7 +11,7 @@
 
 .principal::before{
     content: '';
-    background-image: url(../../assets/betoneira.png);
+    background-image: url(../../assets/thumb12.png);
     position: absolute;
     width: 100%;
     height: 100%;

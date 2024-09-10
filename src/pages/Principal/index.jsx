@@ -1,14 +1,15 @@
 import './Principal.css'
-import Popup from '../../components/Popup'
+import Popup from '../../components/IconCard'
 import Card from '../../components/Card'
 import { IoNewspaperOutline } from "react-icons/io5";
 import { VscTools } from "react-icons/vsc";
 import { GiCommercialAirplane } from "react-icons/gi";
-import betoneira from "../../assets/betoneira.png"
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Principal = () => {
+
+
 
     const navigate = useNavigate()
 
@@ -61,22 +62,23 @@ const Principal = () => {
                 <h2> Abaixo:</h2>
                 <div className='catalog'>
                     <Card
-                        onClick={onButtonHandle}
+                        buttonText='Alugar'
+                        imagem='https://github.com/jhdh26.png'
+                        nome='João'
+                    />
+                    <Card
+                        buttonText='Alugar'
                         imagem='https://github.com/jhdh26.png'
                         nome='João'
                         categoria=''
                     />
                     <Card
-                        onClick={onButtonHandle}
+                        buttonText='Alugar'
                         imagem='https://github.com/jhdh26.png'
-                        nome='João'
+                        nome='Betoneira'
                         categoria=''
-                    />
-                    <Card
-                        onClick={onButtonHandle}
-                        imagem='https://github.com/jhdh26.png'
-                        nome='João'
-                        categoria=''
+                        desc='Também chamada de misturador de concreto, a betoneira é um utensílio básico de toda obra. Por sua função de misturar materiais, ela é usada em diversos setores industriais, porém, dentro de uma edificação tem uma função bem específica. É nela que se coloca água, areia, cimento e agregados para a formação do concreto.'
+                        preco='R$500 (Diaria)'
                     />
                 </div>
                 <h1>Veja mais a baixo:</h1>
@@ -87,3 +89,4 @@ const Principal = () => {
 }
 
 export default Principal
+

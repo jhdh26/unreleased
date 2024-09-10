@@ -1,8 +1,8 @@
-import './Popup.css'
+import './IconCard.css'
 
-const Popup = (props) => {
+const IconCard = (props) => {
     return (
-        <div className='popup'>
+        <div className='icon-card'>
             {props.icon}
             <h1>{props.title}</h1>
             <p>{props.text}</p>
@@ -10,4 +10,4 @@ const Popup = (props) => {
     )
 }
 
-export default Popup
+export default IconCard
