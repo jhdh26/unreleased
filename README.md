@@ -1,7 +1,8 @@
 *need npm/npx*
 
 
-git clone 
+git clone   
 
-npm install
+npm install  
+  
 npm run dev
