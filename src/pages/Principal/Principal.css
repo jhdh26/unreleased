@@ -36,7 +36,7 @@
     font-size: 80px;
 }
 
-.principal > button{
+.principal-button{
     margin: 20px;
     width: 25vh;
     height: 10vh;
@@ -49,7 +49,7 @@
 }
 
 .secundaria{
-    padding: 250px;
+    padding: 150px;
     display: flex;
     gap: 50px;
 }

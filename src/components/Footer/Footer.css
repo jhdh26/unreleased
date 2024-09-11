@@ -1,0 +1,50 @@
+.main-footer {
+    background-color: #2e2e2e;
+    padding: 20px 0;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding-top: 20px;
+}
+
+.footer-icons>* {
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    font-size: 30px;
+    color: #2e2e2e;
+    padding: 15px;
+    border:none;
+    box-shadow: none;
+    transition: background-color 0.3s, color 0.3s;
+
+}
+
+.footer-icons>*:hover {
+    background-color: #0fa3b1;
+    color: white;
+}
+
+
+.footer-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 120px;
+    padding: 40px;
+}
+
+.footer-text>h1 {
+    font-size: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.footer-text>h1:hover {
+    text-decoration: underline;
+}
+

@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Alugar from './pages/Alugar'
 import Vender from './pages/Vender'
 import Principal from './pages/Principal'
+import Footer from './components/Footer'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='login' element={<Login />} />
           <Route path='alugar' element={<Alugar />} />
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </div>
   )

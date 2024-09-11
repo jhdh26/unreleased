@@ -1,20 +1,30 @@
 import './Principal.css'
+import '../../components/Card/ModalStyles.css'
 import Popup from '../../components/IconCard'
 import Card from '../../components/Card'
 import { IoNewspaperOutline } from "react-icons/io5";
 import { VscTools } from "react-icons/vsc";
 import { GiCommercialAirplane } from "react-icons/gi";
-import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { IoCloseCircleOutline } from "react-icons/io5";
+import Modal from 'react-modal'
 
 const Principal = () => {
 
-
-
     const navigate = useNavigate()
-
     const onButtonHandle = () => {
         navigate('/alugar')
+    }
+
+    const [popup, setPopup] = useState(false)
+
+    function openModal() {
+        setPopup(true)
+    }
+
+    function closeModal() {
+        setPopup(false)
     }
 
     return (
@@ -22,7 +32,19 @@ const Principal = () => {
             <div className='principal'>
                 <h2>Locação de peças</h2>
                 <h1>Tudo para a sua obra</h1>
-                <button className='principal-button'>Faça um orçamento</button>
+                <button className='principal-button' onClick={openModal} >Faça um orçamento</button>
+                <Modal
+                    isOpen={popup}
+                    onRequestClose={closeModal}
+                    contentLabel='Compre aqui'
+                    className='customModal'
+                    overlayClassName='customOverlay'
+                >
+                    <div className="modal-header">
+                        <h1>Entre em contato</h1>
+                        <IoCloseCircleOutline className='customIcon' onClick={closeModal} />
+                    </div>
+                </Modal>
             </div>
             <div className='secundaria'>
                 <div className='div-alugar-main'>
@@ -31,18 +53,18 @@ const Principal = () => {
                     <div className='div-alugar'>
                         <Popup
                             icon={<IoNewspaperOutline className='icon-styles' />}
-                            title='Menos custos'
-                            text=' Alugar equipamentos é mais barato do que comprá-los, especialmente se você só precisar do equipamento por um período de tempo '
+                            title='Economia garantida'
+                            text='Alugar máquinas é a solução mais econômica, ideal para quem precisa de equipamentos por tempo limitado'
                         />
                         <Popup
                             icon={<VscTools className='icon-styles' />}
-                            title='Zero manutenção'
-                            text='Em casos de mal funcionamento, produtos locados têm garantia total para substituição rápida e sem atrasos em sua obra'
+                            title='Sem preocupações'
+                            text='Em caso de falhas, nossos equipamentos alugados contam com substituição rápida, evitando qualquer atraso no seu projeto'
                         />
                         <Popup
                             icon={<GiCommercialAirplane className='icon-styles' />}
-                            title='Rápido e seguro'
-                            text='Tenha seu equipamento disponível no local em pouco tempo, com nosso processo de contratação facilitado e transporte rápido '
+                            title='Agilidade e confiabilidade'
+                            text='Garanta seus equipamentos de forma rápida e segura, com transporte eficiente e contratação simplificada'
                         />
                     </div>
                 </div>
@@ -82,7 +104,7 @@ const Principal = () => {
                     />
                 </div>
                 <h1>Veja mais a baixo:</h1>
-                <Link to='alugar'>Alugar</Link>
+                <button className='principal-button' onClick={onButtonHandle}>Clique para ver</button>
             </div>
         </div>
     )
