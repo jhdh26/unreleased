@@ -1,1 +1,7 @@
-a new system of parts rental !
+*need npm/npx*
+
+
+git clone 
+
+npm install
+npm run dev
