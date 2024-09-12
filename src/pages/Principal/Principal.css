@@ -46,6 +46,11 @@
     background-color: #E1BB80;
     color: white;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.principal-button:hover {
+    transform: scale(1.05);
 }
 
 .secundaria{

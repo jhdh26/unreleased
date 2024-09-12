@@ -8,10 +8,10 @@
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 3px;
-    color: #0fa3b1;
+    color: #E1BB80;
     background: #2e2e2e;
     cursor: pointer;
-    box-shadow: 0px 10px 40px -12px #BB86FC;
+    box-shadow: 0px 10px 40px -12px #7c6746;
 }
 
 @media (min-width: 768px) {

@@ -1,0 +1,33 @@
+.main-registro {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main-registro > h1 {
+    padding-top: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 80px;
+}
+
+.main-crud {
+    width: 80vw;
+    height: 60vh;
+    padding: 30px 45px;
+    border-radius: 10px;
+    background-color: #E1BB80;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+
+

@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import './Form.css';
+import './FormLogin.css';
 import InputText from '../InputText';
 import Button from '../Button';
 
-const Form = () => {
+const FormLogin = () => {
     const [isLoginVisible, setIsLoginVisible] = useState(false);
 
     const handleSwitchForm = () => {
@@ -70,4 +70,4 @@ const Form = () => {
     );
 };
 
-export default Form;
+export default FormLogin;

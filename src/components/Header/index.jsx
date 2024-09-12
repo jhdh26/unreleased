@@ -12,7 +12,7 @@ const Header = () => {
                 <nav>
                     <div className="right-header">
                         <Link to='/alugar'>Alugar</Link>
-                        <Link to='/vender'>Vender</Link>
+                        <Link to='/registroitens'>Registro Itens</Link>
                         <Link to='/login'>Login</Link>
                         <IoSearch className="icon-search"/>
                     </div>

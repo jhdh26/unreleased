@@ -1,0 +1,25 @@
+.form-item-main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.form-item-form {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px 45px;
+    background-color: #E1BB80;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.form-item-form>h1{
+    text-transform: uppercase;
+    text-align: center;
+}
