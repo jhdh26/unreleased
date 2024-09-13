@@ -1,0 +1,57 @@
+.main-personalprofile{
+    position: relative;
+    width: 100vw;
+    height: 100vh; /*cima*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    overflow: hidden;
+    gap: 50px;
+}
+
+.left-personalprofile{
+    flex: 1;
+    height: 80vh;
+    background-color: #2e2e2e;
+    color: white;
+    margin-left: 20px;
+    border-radius: 15px;
+}
+
+.left-personalprofile > h1{
+    text-align: center;
+}
+
+.content-left{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 20px;
+}
+
+.right-personalprofile{
+    flex: 4;
+    height: 80vh;
+    background-color: #E1BB80;
+    color: #2e2e2e;
+    margin-right: 20px;
+    border-radius: 15px;
+}
+
+.right-personalprofile>h1{
+    padding-top: 10px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.content-right{
+
+}
+
+.right-options{
+    padding-top: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+

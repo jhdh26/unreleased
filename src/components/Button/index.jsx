@@ -1,10 +1,9 @@
 import './Button.css'
-import { useNavigate } from 'react-router-dom'
 
 const Button = (props) =>{
     return(
         <div className="main-button">
-            <button className='button' type='button' value='value'>{props.text}</button>
+            <button className='button' onClick={props.onClick} type='button' value='value'>{props.text}</button>
         </div>
     )
 }

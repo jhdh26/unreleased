@@ -2,13 +2,20 @@ import { useState } from 'react';
 import './FormLogin.css';
 import InputText from '../InputText';
 import Button from '../Button';
+import { useNavigate } from 'react-router-dom';
 
 const FormLogin = () => {
     const [isLoginVisible, setIsLoginVisible] = useState(false);
 
     const handleSwitchForm = () => {
-        setIsLoginVisible(prev => !prev);
-    };
+        setIsLoginVisible(prev => !prev)
+    }
+
+    const navigate = useNavigate()
+    const onButtonHandle = (event) => {
+        event.preventDefault()
+        navigate('/principal')
+    }
 
     return (
         <div className="main-form">
@@ -31,6 +38,7 @@ const FormLogin = () => {
                         placeholder='Insira a senha novamente'
                     />
                     <Button
+                        onClick={onButtonHandle}
                         text='criar'
                     />
                     <div className="account-container">
@@ -42,7 +50,7 @@ const FormLogin = () => {
                 </div>
             </div>
             <div className={`right-form ${isLoginVisible ? 'visible' : ''}`}>
-                <div className="register-card">
+                <form className="register-card">
                     <h1>LOGIN</h1>
                     <InputText
                         label='Email'
@@ -56,6 +64,7 @@ const FormLogin = () => {
                         placeholder='Digite aqui sua senha'
                     />
                     <Button
+                        onClick={onButtonHandle}
                         text='entrar'
                     />
                     <div className="account-container">
@@ -64,7 +73,7 @@ const FormLogin = () => {
                             Cadastre-se aqui
                         </label>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     );
