@@ -80,3 +80,21 @@
 .first-label {
     color: white;
 }
+
+.input-text-form-login {
+    text-align: center;
+    /*width: 100%;*/
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: #2e2e2e;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.name-form-login{
+    color: #f0ffffde;   
+}

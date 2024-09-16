@@ -1,7 +1,7 @@
-.main-personalprofile{
+.main-personalprofile {
     position: relative;
     width: 100vw;
-    height: 100vh; /*cima*/
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -9,20 +9,16 @@
     gap: 50px;
 }
 
-.left-personalprofile{
+.left-personalprofile {
     flex: 1;
-    height: 80vh;
+    height: 90vh;
     background-color: #2e2e2e;
     color: white;
     margin-left: 20px;
     border-radius: 15px;
 }
 
-.left-personalprofile > h1{
-    text-align: center;
-}
-
-.content-left{
+.content-left {
     padding-top: 50px;
     display: flex;
     flex-direction: column;
@@ -30,28 +26,199 @@
     gap: 20px;
 }
 
-.right-personalprofile{
+.right-personalprofile {
     flex: 4;
-    height: 80vh;
+    height: 90vh;
     background-color: #E1BB80;
     color: #2e2e2e;
     margin-right: 20px;
     border-radius: 15px;
 }
 
-.right-personalprofile>h1{
-    padding-top: 10px;
-    text-align: center;
-    text-transform: uppercase;
+.right-profile {
+    padding-top: 45px;
+    padding-left: 30px;
 }
 
-.content-right{
-
-}
-
-.right-options{
-    padding-top: 25px;
+.right-profile-header{
     display: flex;
-    justify-content: space-around;
+    padding-right: 70px;
+    justify-content: space-between;
 }
 
+.right-profile-header>h1 {
+    font-size: 40px;
+    text-decoration: underline;
+    color: #384D6C;
+    padding-left: 20px;
+}
+
+.right-profile-header>button{
+    width: 150px;
+    height: 50px;
+}
+
+.right-profile-items {
+    display: flex;
+    padding-top: 10px;
+    padding-right: 20px;
+}
+
+.items-left-profile {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-top: 30px;
+    padding-left: 20px;
+}
+
+.items-left-profile>img {
+    width: 10vw;
+    height: 20vh;
+    border-radius: 50%;
+}
+
+.left-profile-text {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.left-profile-text>h1 {
+    font-size: 25px;
+    color: #384D6C;
+}
+
+.left-profile-text>h2 {
+    font-size: 15px;
+    color: #6B7280;
+}
+
+.items-right-profile {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.items-right-profile>button {
+    width: 176px;
+    height: 56px;
+    border-radius: 8px;
+    border: none;
+}
+
+.btn-left {
+    background-color: #384D6C;
+    color: #fff;
+    font-size: 15px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-right {
+    background-color: #fff;
+    color: #384D6C;
+    font-size: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.items-right-profile>button:hover {
+    transform: scale(1.05);
+}
+
+.right-profile-inputs {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.right-profile-input-mail {
+    flex: 1;
+}
+
+.right-profile-input-phone {
+    flex: 1;
+}
+
+.input-text-profile {
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #ABB1BB;
+    border: none;
+    border-radius: 8px;
+}
+
+.name-profile {
+    color: #384D6C;
+}
+
+.right-profile-password {
+    padding-top: 30px;
+}
+
+.right-profile-password-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.right-profile-password-low {
+    padding-left: 40px;
+
+}
+
+.input-text-profile-low {
+    width: 95%;
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #ABB1BB;
+    border: none;
+    border-radius: 8px;
+}
+
+.save-changes {
+    padding-top: 30px;
+    display: flex;
+    align-items: right;
+    justify-content: right;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+.btn-delete,
+.btn-att {
+    width: 176px;
+    height: 56px;
+    font-size: 15px;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.btn-delete:hover,
+.btn-att:hover {
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    background-color: #384D6C;
+    color: #fff;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-att {
+    background-color: #fff;
+    color: #384D6C;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
