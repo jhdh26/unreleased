@@ -1,10 +1,30 @@
 import './PersonalProfile.css'
-
+import './ModalLogout.css'
+import { useState } from 'react';
+import Modal from 'react-modal'
 import { IoPhonePortrait } from "react-icons/io5";
+import { MdExitToApp } from "react-icons/md";
 
 import InputText from '../../components/InputText'
+import { useNavigate } from 'react-router-dom';
 
 const PersonalProfile = (props) => {
+
+    const navigate = useNavigate()
+    const onNavigate = () => {
+        navigate('/')
+    }
+
+    const [popup, setPopup] = useState(false)
+
+    function openModal () {
+        setPopup(true)
+    }
+
+    function closeModal() {
+        setPopup(false)
+    }
+
     return (
         <div className="main-personalprofile">
             <div className="left-personalprofile">
@@ -19,7 +39,22 @@ const PersonalProfile = (props) => {
                     <div className="right-profile">
                         <div className="right-profile-header">
                             <h1>Perfil</h1>
-                            <button>Logout</button>
+                            <button onClick={openModal}>Logout</button>
+                            <Modal
+                                isOpen={popup}
+                                onRequestClose={closeModal}
+                                contentLabel='Logout'
+                                className='logoutModal'
+                                overlayClassName='customLogout'
+                            >
+                                <div className="modal-logout-content">
+                                <MdExitToApp className='logout-icon' />
+                                <h1>Logout</h1>
+                                <h2>Voce tem certeza que quer fazer o logout?</h2>
+                                <button className='modal-btn-logout' onClick={onNavigate}>Logout</button>
+                                <button className='modal-btn-cancel' onClick={closeModal}>Cancelar</button>
+                                </div>
+                            </Modal>
                         </div>
                         <div className="right-profile-items">
                             <div className="items-left-profile">
@@ -58,7 +93,7 @@ const PersonalProfile = (props) => {
                             <InputText
                                 inputClassName='input-text-profile'
                                 placeholder={<IoPhonePortrait />}
-                                nameClassName='Insira sua senha'
+                                nameClassName='name-profile'
                                 label='Numero'
                             />
                             <InputText
@@ -72,7 +107,7 @@ const PersonalProfile = (props) => {
                             <InputText
                                 inputClassName='input-text-profile-low'
                                 placeholder='Insira novamente sua nova senha'
-                                nameClassName='name-profile'
+                                nameClassName=''
                                 label='Numero'
                             />
                         </div>

@@ -11,6 +11,7 @@ const Alugar = () => {
                     <InputText
                         type='text'
                         placeholder='Pesquise por categorias'
+                        inputClassName='input-text-form-login'
                     />
                 </div>
                 <div className="cards">
