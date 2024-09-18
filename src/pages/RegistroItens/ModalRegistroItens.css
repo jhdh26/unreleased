@@ -1,0 +1,81 @@
+.overlay-add-item {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-add-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #E1BB80;
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.header-add-item{
+    display: flex;
+    justify-content: center;
+}
+
+.icon-add-item{
+    position: absolute;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: goldenrod;
+}
+
+.name-add-item{
+    color: #384d6c;
+}
+
+.input-add-item{
+    width: 90%;
+    text-align: center;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #2e2e2e;
+    border: none;
+    border-radius: 8px; 
+}
+
+.btn-add-item{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 25px;
+    padding-top: 15px;
+}
+
+.item-btn-clear{
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #fff;
+    text-transform: uppercase;
+}
+
+.item-btn-add{
+    width: 80px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: #384D6C;
+    color: #fff;
+    text-transform: uppercase;
+}
+

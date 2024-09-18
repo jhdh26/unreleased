@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import Modal from 'react-modal'
+import betoneira from '../../assets/betoneira.png'
 
 const Principal = () => {
 
@@ -26,6 +27,12 @@ const Principal = () => {
     function closeModal() {
         setPopup(false)
     }
+
+    const [item] = useState([
+        { botao: 'Ver mais', nome: 'Betoneira', imagem: betoneira, desc: '', preco: 'R$300' },
+        { botao: 'Ver mais', nome: 'Caminhão', imagem: betoneira, desc: '', preco: 'R$300' },
+        { botao: 'Ver mais', nome: 'Trator', imagem: betoneira, desc: '', preco: 'R$300' }
+    ])
 
     return (
         <div className='main-principal'>
@@ -83,25 +90,16 @@ const Principal = () => {
                 <h1>Veja nosso catalogo</h1>
                 <h2> Abaixo:</h2>
                 <div className='catalog'>
-                    <Card
-                        buttonText='Alugar'
-                        imagem='https://github.com/jhdh26.png'
-                        nome='João'
-                    />
-                    <Card
-                        buttonText='Alugar'
-                        imagem='https://github.com/jhdh26.png'
-                        nome='João'
-                        categoria=''
-                    />
-                    <Card
-                        buttonText='Alugar'
-                        imagem='https://github.com/jhdh26.png'
-                        nome='Betoneira'
-                        categoria=''
-                        desc='Também chamada de misturador de concreto, a betoneira é um utensílio básico de toda obra. Por sua função de misturar materiais, ela é usada em diversos setores industriais, porém, dentro de uma edificação tem uma função bem específica. É nela que se coloca água, areia, cimento e agregados para a formação do concreto.'
-                        preco='R$500 (Diaria)'
-                    />
+                    {item.map(item => (
+                        <Card
+                            buttonText={item.botao}
+                            imagem={item.imagem}
+                            nome={item.nome}
+                            categoria=''
+                            desc={item.desc}
+                            preco={item.preco}
+                        />
+                    ))}
                 </div>
                 <h1>Veja mais a baixo:</h1>
                 <button className='principal-button' onClick={onButtonHandle}>Clique para ver</button>

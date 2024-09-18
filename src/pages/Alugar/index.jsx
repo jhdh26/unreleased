@@ -2,8 +2,17 @@ import './Alugar.css'
 import Card from '../../components/Card'
 import InputText from '../../components/InputText'
 import betoneira from '../../assets/betoneira.png'
+import { useState } from 'react'
 
 const Alugar = () => {
+
+const [itens] = useState([
+    {button:'Alugar', name: 'Betoneira', imagem: betoneira, preco: 'R$500'},
+    {button:'Alugar', name: 'Trator', imagem: betoneira, preco: 'R$1000'},
+    {button:'Alugar', name: 'Escavadeira', imagem: betoneira, preco: 'R$2000'},
+    {button:'Alugar', name: 'Caminhao', imagem: betoneira, preco: 'R$4300'}
+])
+
     return (
         <div className='main-alugar'>
             <div className="items-list">
@@ -15,32 +24,17 @@ const Alugar = () => {
                     />
                 </div>
                 <div className="cards">
-                    <Card
-                        buttonText='Alugar'
-                        imagem='https://github.com/jhdh26.png'
-                        nome='João'
-                        categoria=''
-                    />
-                    <Card
-                        buttonText='Alugar'
-                        imagem='https://github.com/jhdh26.png'
-                        nome='João'
-                        categoria=''
-                    />
-                    <Card
-                        buttonText='Alugar'
-                        imagem='https://github.com/jhdh26.png'
-                        nome='João'
-                        categoria=''
-                    />
-                    <Card
-                        buttonText='Alugar'
-                        imagem={betoneira}
-                        nome='Betoneira'
+                    {itens.map(item =>(
+                        <Card
+                        buttonText={item.button}
+                        imagem={item.imagem}
+                        nome={item.name}
                         categoria=''
                         desc='Também chamada de misturador de concreto, a betoneira é um utensílio básico de toda obra. Por sua função de misturar materiais, ela é usada em diversos setores industriais, porém, dentro de uma edificação tem uma função bem específica. É nela que se coloca água, areia, cimento e agregados para a formação do concreto.'
-                        preco='R$500 (Diaria)'
+                        preco={item.preco}
                     />
+                    ))}
+                    
                 </div>
             </div>
         </div>

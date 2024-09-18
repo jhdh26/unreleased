@@ -62,12 +62,16 @@ const FormLogin = () => {
                         label='Email'
                         type='email'
                         placeholder='Digite aqui seu email'
+                        inputClassName='input-text-form-login'
+                        nameClassName='name-form-login'
                     />
                     <InputText
                         label='Senha'
                         labelEnd='Esqueceu sua senha?'
                         type='password'
                         placeholder='Digite aqui sua senha'
+                        inputClassName='input-text-form-login'
+                        nameClassName='name-form-login'
                     />
                     <Button
                         onClick={onButtonHandle}

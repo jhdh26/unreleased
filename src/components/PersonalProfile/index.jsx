@@ -2,8 +2,9 @@ import './PersonalProfile.css'
 import './ModalLogout.css'
 import { useState } from 'react';
 import Modal from 'react-modal'
-import { IoPhonePortrait } from "react-icons/io5";
 import { MdExitToApp } from "react-icons/md";
+import { IoPhonePortrait } from "react-icons/io5";
+import { IoMailUnread } from "react-icons/io5";
 
 import InputText from '../../components/InputText'
 import { useNavigate } from 'react-router-dom';
@@ -44,8 +45,8 @@ const PersonalProfile = (props) => {
                                 isOpen={popup}
                                 onRequestClose={closeModal}
                                 contentLabel='Logout'
-                                className='logoutModal'
-                                overlayClassName='customLogout'
+                                className='modal-logout'
+                                overlayClassName='overlay-logout'
                             >
                                 <div className="modal-logout-content">
                                 <MdExitToApp className='logout-icon' />
@@ -73,18 +74,21 @@ const PersonalProfile = (props) => {
                     <div className='right-profile-inputs'>
                         <div className="right-profile-input-mail">
                             <InputText
-                                placeholder='Escreva aqui'
+                                placeholder='Insira seu email'
                                 inputClassName='input-text-profile'
                                 nameClassName='name-profile'
                                 label='Mail'
+                                icon={<IoMailUnread className='form-icon-profile'/>}
+                                
                             />
                         </div>
                         <div className="right-profile-input-phone">
                             <InputText
                                 inputClassName='input-text-profile'
-                                placeholder={<IoPhonePortrait />}
+                                placeholder='Insira seu numero de telefone'
                                 nameClassName='name-profile'
                                 label='Numero'
+                                icon={<IoPhonePortrait className='form-icon-profile'/>}
                             />
                         </div>
                     </div>
@@ -92,15 +96,17 @@ const PersonalProfile = (props) => {
                         <div className="right-profile-password-top">
                             <InputText
                                 inputClassName='input-text-profile'
-                                placeholder={<IoPhonePortrait />}
+                                placeholder='Insira sua senha atual'
+                                type='password'
                                 nameClassName='name-profile'
-                                label='Numero'
+                                label='Senha'
                             />
                             <InputText
                                 inputClassName='input-text-profile'
                                 placeholder='Insira a nova senha'
+                                type='password'
                                 nameClassName='name-profile'
-                                label='Numero'
+                                label='Nova senha'
                             />
                         </div>
                         <div className="right-profile-password-low">
@@ -108,7 +114,8 @@ const PersonalProfile = (props) => {
                                 inputClassName='input-text-profile-low'
                                 placeholder='Insira novamente sua nova senha'
                                 nameClassName=''
-                                label='Numero'
+                                type='password'
+                                label='Nova senha'
                             />
                         </div>
                     </div>

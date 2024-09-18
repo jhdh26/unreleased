@@ -8,9 +8,12 @@ const InputText = (props) => {
                 <label className="label-end">{props.labelEnd}</label>
             </div>
             <input type={props.type} className={props.inputClassName} placeholder={props.placeholder} />
+            {props.icon}
         </div>
     )
 }
 
 export default InputText
+
+
 
