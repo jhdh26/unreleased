@@ -16,6 +16,10 @@ const PersonalProfile = (props) => {
         navigate('/')
     }
 
+    const navigatePedidos = () => {
+        navigate('/pedidos')
+    }
+
     const [popup, setPopup] = useState(false)
 
     function openModal () {
@@ -31,8 +35,8 @@ const PersonalProfile = (props) => {
             <div className="left-personalprofile">
                 <h1>OPÇÕES</h1>
                 <div className="content-left">
-                    <p>Opção 1</p>
-                    <p>Opção 2</p>
+                    <p>Perfil</p>
+                    <p onClick={navigatePedidos}>Meus pedidos</p>
                 </div>
             </div>
             <div className="right-personalprofile">
@@ -59,7 +63,7 @@ const PersonalProfile = (props) => {
                         </div>
                         <div className="right-profile-items">
                             <div className="items-left-profile">
-                                <img src='https://github.com/jhdh26.png'></img>
+                                <img src='https://github.com/jhdh26.png'/>
                                 <div className="left-profile-text">
                                     <h1>{props.nome}</h1>
                                     <h2>{props.endereco}</h2>

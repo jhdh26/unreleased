@@ -7,8 +7,6 @@ import { VscTools } from "react-icons/vsc";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { IoCloseCircleOutline } from "react-icons/io5";
-import Modal from 'react-modal'
 import betoneira from '../../assets/betoneira.png'
 
 const Principal = () => {
@@ -18,15 +16,10 @@ const Principal = () => {
         navigate('/alugar')
     }
 
-    const [popup, setPopup] = useState(false)
+const wpp = () => {
+    window.open('https://wa.me/5541991316392', '_blank')
+}
 
-    function openModal() {
-        setPopup(true)
-    }
-
-    function closeModal() {
-        setPopup(false)
-    }
 
     const [item] = useState([
         { botao: 'Ver mais', nome: 'Betoneira', imagem: betoneira, desc: '', preco: 'R$300' },
@@ -39,19 +32,7 @@ const Principal = () => {
             <div className='principal'>
                 <h2>Locação de peças</h2>
                 <h1>Tudo para a sua obra</h1>
-                <button className='principal-button' onClick={openModal} >Faça um orçamento</button>
-                <Modal
-                    isOpen={popup}
-                    onRequestClose={closeModal}
-                    contentLabel='Compre aqui'
-                    className='customModal'
-                    overlayClassName='customOverlay'
-                >
-                    <div className="modal-header">
-                        <h1>Entre em contato</h1>
-                        <IoCloseCircleOutline className='customIcon' onClick={closeModal} />
-                    </div>
-                </Modal>
+                <button className='principal-button' onClick={wpp} >Faça um orçamento</button>
             </div>
             <div className='secundaria'>
                 <div className='div-alugar-main'>

@@ -6,6 +6,7 @@ import RegistroItens from './pages/RegistroItens'
 import Principal from './pages/Principal'
 import Footer from './components/Footer'
 import Perfil from './pages/Perfil'
+import Pedidos from './pages/Pedidos'
 
 function Layout() {
   const location = useLocation();
@@ -20,7 +21,8 @@ function Layout() {
         <Route path='registroitens' element={<RegistroItens />} />
         <Route path='principal' element={<Principal />} />
         <Route path='alugar' element={<Alugar />} />
-        <Route path='perfil' element={<Perfil/>} />
+        <Route path='perfil' element={<Perfil />} />
+        <Route path='pedidos' element={<Pedidos />} />
       </Routes>
       {!hideHeaderFooter && <Footer />}
     </div>
