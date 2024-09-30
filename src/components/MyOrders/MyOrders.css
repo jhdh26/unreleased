@@ -9,6 +9,16 @@
     gap: 50px;
 }
 
+.left-line{
+    width: 13vw;
+    height: 0.5vh;
+    background-color: white;
+    border-radius: 8px;
+    padding-left: 30px;
+    margin-inline: 30px;
+    opacity: 70%;
+}
+
 .left-myorders {
     flex: 1;
     height: 90vh;
@@ -16,20 +26,47 @@
     color: white;
     margin-left: 20px;
     border-radius: 15px;
+    text-align: center;
 }
 
-.left-myorders{ /*ARRUMAR AQUI*/
-    text-align: center;
-    padding-top: 20px;
+.left-myorders > h1{
+    margin-top: 10px;
 }
 
 .myorders-content-left {
     padding-top: 50px;
-    padding-left: 25px;
     display: flex;
     flex-direction: column;
     text-align: left;
     gap: 20px;
+}
+
+.order-on-page{
+    font-size: 20px;
+    display:flex;
+    padding-left: 30px;
+    align-items: center;
+    border-radius: 6px;
+    gap: 25px;
+    margin-inline: 30px;
+    height: 40px;
+    background-color: #E1BB80;
+}
+
+.order-on-page:hover,.order-off-page:hover{
+    cursor: pointer;
+}
+
+.order-off-page{
+    font-size: 20px;
+    display:flex;
+    padding-left: 30px;
+    align-items: center;
+    border-radius: 6px;
+    gap: 25px;
+    margin-inline: 30px;
+    height: 40px;
+
 }
 
 .right-myorders {
@@ -43,46 +80,28 @@
 
 .order-header{
     display: flex;
-    padding-inline: 10px;
+    padding-top: 45px;
+    padding-left: 30px;
+    gap: 130px;
 }
 
-.order-buttons{
-    display: flex;
-    gap: 100px;
-    font-size: 10px;
-    padding-top: 50px;
-    padding-left: 40px;
-}
-
-.order-buttons>h1:hover{
+.order-header > h1{
+    font-size: 40px;
     text-decoration: underline;
-    transform: scale(1.05);
-    cursor: pointer;
-    font-weight: bold;
+    color: #384d6c;
+    padding-left: 20px;
 }
 
-.all-orders{
-    display: flex;
-    flex-direction: column;
-}
-
-.orders-text{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.orders-line{
     margin-left: 35px;
     margin-top: 50px;
-    background-color: purple;
+    background-color: #2e2e2e;
     border-radius: 15px;
     width: 70vw;
-    height: 7vh;
+    height: 1vh;
+    opacity: 80%;
 }
 
-.orders-text > h1 {
-    padding: 15px;
-    font-size: 30px;
-    color: #fff;
-}
 
 .orders-products{
     display: flex;
@@ -95,6 +114,6 @@
 
 .orders-products-number{
     display: flex;
-    justify-content: space-between;
+    gap: 30px;
 }
 

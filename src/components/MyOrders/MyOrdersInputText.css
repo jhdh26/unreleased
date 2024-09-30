@@ -1,0 +1,13 @@
+.myorder-input-text{
+        text-align: center;
+        width: 70%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background-color: white;
+        color: #2e2e2e;
+        font-size: 12pt;
+        box-shadow: 0px 10px 40px #00000056;
+        outline: none;
+        box-sizing: border-box;
+}

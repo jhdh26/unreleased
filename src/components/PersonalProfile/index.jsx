@@ -5,6 +5,8 @@ import Modal from 'react-modal'
 import { MdExitToApp } from "react-icons/md";
 import { IoPhonePortrait } from "react-icons/io5";
 import { IoMailUnread } from "react-icons/io5";
+import { CgProfile } from "react-icons/cg";
+import { MdOutlineShoppingBag } from "react-icons/md";
 
 import InputText from '../../components/InputText'
 import { useNavigate } from 'react-router-dom';
@@ -22,7 +24,7 @@ const PersonalProfile = (props) => {
 
     const [popup, setPopup] = useState(false)
 
-    function openModal () {
+    function openModal() {
         setPopup(true)
     }
 
@@ -35,8 +37,15 @@ const PersonalProfile = (props) => {
             <div className="left-personalprofile">
                 <h1>OPÇÕES</h1>
                 <div className="content-left">
-                    <p>Perfil</p>
-                    <p onClick={navigatePedidos}>Meus pedidos</p>
+                    <div className="profile-on-page">
+                        <CgProfile />
+                        <p>Perfil</p>
+                    </div>
+                    <div className="left-line"/>
+                    <div className="profile-off-page">
+                        <MdOutlineShoppingBag />
+                        <p onClick={navigatePedidos}>Pedidos</p>
+                    </div>
                 </div>
             </div>
             <div className="right-personalprofile">
@@ -44,6 +53,7 @@ const PersonalProfile = (props) => {
                     <div className="right-profile">
                         <div className="right-profile-header">
                             <h1>Perfil</h1>
+
                             <button onClick={openModal}>Logout</button>
                             <Modal
                                 isOpen={popup}
@@ -53,17 +63,17 @@ const PersonalProfile = (props) => {
                                 overlayClassName='overlay-logout'
                             >
                                 <div className="modal-logout-content">
-                                <MdExitToApp className='logout-icon' />
-                                <h1>Logout</h1>
-                                <h2>Voce tem certeza que quer fazer o logout?</h2>
-                                <button className='modal-btn-logout' onClick={onNavigate}>Logout</button>
-                                <button className='modal-btn-cancel' onClick={closeModal}>Cancelar</button>
+                                    <MdExitToApp className='logout-icon' />
+                                    <h1>Logout</h1>
+                                    <h2>Voce tem certeza que quer fazer o logout?</h2>
+                                    <button className='modal-btn-logout' onClick={onNavigate}>Logout</button>
+                                    <button className='modal-btn-cancel' onClick={closeModal}>Cancelar</button>
                                 </div>
                             </Modal>
                         </div>
                         <div className="right-profile-items">
                             <div className="items-left-profile">
-                                <img src='https://github.com/jhdh26.png'/>
+                                <img src='https://github.com/jhdh26.png' />
                                 <div className="left-profile-text">
                                     <h1>{props.nome}</h1>
                                     <h2>{props.endereco}</h2>
@@ -82,8 +92,8 @@ const PersonalProfile = (props) => {
                                 inputClassName='input-text-profile'
                                 nameClassName='name-profile'
                                 label='Mail'
-                                icon={<IoMailUnread className='form-icon-profile'/>}
-                                
+                                icon={<IoMailUnread className='form-icon-profile' />}
+
                             />
                         </div>
                         <div className="right-profile-input-phone">
@@ -92,7 +102,7 @@ const PersonalProfile = (props) => {
                                 placeholder='Insira seu numero de telefone'
                                 nameClassName='name-profile'
                                 label='Numero'
-                                icon={<IoPhonePortrait className='form-icon-profile'/>}
+                                icon={<IoPhonePortrait className='form-icon-profile' />}
                             />
                         </div>
                     </div>
