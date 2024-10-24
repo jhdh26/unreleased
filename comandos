@@ -1,0 +1,7 @@
+rodar servidor = node --watch server.js
+
+abrir o banco = npx prisma studio
+
+
+npx prisma generate - atualizar banco
+npx prisma db push - atualizar banco
