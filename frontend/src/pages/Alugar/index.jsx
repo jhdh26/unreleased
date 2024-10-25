@@ -2,16 +2,33 @@ import './Alugar.css'
 import Card from '../../components/Card'
 import InputText from '../../components/InputText'
 import betoneira from '../../assets/betoneira.png'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import api from '../../services/api.js'
 
 const Alugar = () => {
 
-const [itens] = useState([
-    {button:'Alugar', name: 'Betoneira', imagem: betoneira, preco: 'R$500'},
-    {button:'Alugar', name: 'Trator', imagem: betoneira, preco: 'R$1000'},
-    {button:'Alugar', name: 'Escavadeira', imagem: betoneira, preco: 'R$2000'},
-    {button:'Alugar', name: 'Caminhao', imagem: betoneira, preco: 'R$4300'}
-])
+    const [itens] = useState([
+        { button: 'Alugar', name: 'Betoneira', imagem: betoneira, preco: 'R$500' },
+        { button: 'Alugar', name: 'Trator', imagem: betoneira, preco: 'R$1000' },
+        { button: 'Alugar', name: 'Escavadeira', imagem: betoneira, preco: 'R$2000' },
+        { button: 'Alugar', name: 'Caminhao', imagem: betoneira, preco: 'R$4300' }
+    ])
+
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        async function getProducts() {
+            try {
+                const response = await api.get('/registroitens')
+                setItems(response.data);
+                console.log(response)
+            } catch (error) {
+                console.error("Erro ao carregar os produtos:", error)
+            }
+        }
+
+        getProducts()
+    }, []);
 
     return (
         <div className='main-alugar'>
@@ -24,17 +41,18 @@ const [itens] = useState([
                     />
                 </div>
                 <div className="cards">
-                    {itens.map(item =>(
+                    {items.map(item => (
                         <Card
-                        buttonText={item.button}
-                        imagem={item.imagem}
-                        nome={item.name}
-                        categoria=''
-                        desc='Também chamada de misturador de concreto, a betoneira é um utensílio básico de toda obra. Por sua função de misturar materiais, ela é usada em diversos setores industriais, porém, dentro de uma edificação tem uma função bem específica. É nela que se coloca água, areia, cimento e agregados para a formação do concreto.'
-                        preco={item.preco}
-                    />
+                            key={items.id}
+                            buttonText='Alugar'
+                            imagem={item.imagem}
+                            nome={item.name}
+                            categoria={item.categoria}
+                            desc={item.descricao}
+                            preco={item.preco}
+                        />
                     ))}
-                    
+
                 </div>
             </div>
         </div>

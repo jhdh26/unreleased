@@ -6,26 +6,35 @@ import { IoNewspaperOutline } from "react-icons/io5";
 import { VscTools } from "react-icons/vsc";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import betoneira from '../../assets/betoneira.png'
+import { useState, useEffect } from 'react';
+import betoneira from '../../assets/betoneira.png' // Remova este se não precisar
+import api from '../../services/api.js'
 
 const Principal = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const onButtonHandle = () => {
-        navigate('/alugar')
-    }
+        navigate('/alugar');
+    };
 
-const wpp = () => {
-    window.open('https://wa.me/5541991316392', '_blank')
-}
+    const wpp = () => {
+        window.open('https://wa.me/5541991316392', '_blank');
+    };
 
+    const [items, setItems] = useState([]);
 
-    const [item] = useState([
-        { botao: 'Ver mais', nome: 'Betoneira', imagem: betoneira, desc: '', preco: 'R$300' },
-        { botao: 'Ver mais', nome: 'Caminhão', imagem: betoneira, desc: '', preco: 'R$300' },
-        { botao: 'Ver mais', nome: 'Trator', imagem: betoneira, desc: '', preco: 'R$300' }
-    ])
+    useEffect(() => {
+        async function getProducts() {
+            try {
+                const response = await api.get('/registroitens')
+                setItems(response.data);
+            } catch (error) {
+                console.error("Erro ao carregar os produtos:", error)
+            }
+        }
+
+        getProducts()
+    }, []);
 
     return (
         <div className='main-principal'>
@@ -69,14 +78,15 @@ const wpp = () => {
             </div>
             <div className="thirty-banner">
                 <h1>Veja nosso catalogo</h1>
-                <h2> Abaixo:</h2>
+                <h2>Abaixo:</h2>
                 <div className='catalog'>
-                    {item.map(item => (
+                    {items.slice(0, 3).map(item => (
                         <Card
-                            buttonText={item.botao}
+                            key={item.id}
+                            buttonText="Ver mais"
                             imagem={item.imagem}
                             nome={item.nome}
-                            categoria=''
+                            categoria={item.categoria}
                             desc={item.desc}
                             preco={item.preco}
                         />
@@ -89,5 +99,4 @@ const wpp = () => {
     )
 }
 
-export default Principal
-
+export default Principal;
