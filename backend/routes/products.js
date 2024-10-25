@@ -1,8 +1,8 @@
-import express from 'express';
-import { PrismaClient } from '@prisma/client';
+import express from 'express'
+import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient();
-const router = express.Router();
+const prisma = new PrismaClient()
+const router = express.Router()
 
 
 //ADICIONAR ITEM
@@ -77,12 +77,12 @@ router.delete('/registroitens/:id' , async (req,res) => {
 
 router.get('/registroitens', async (req, res) => {
     try {
-        const products = await prisma.products.findMany();
+        const products = await prisma.products.findMany()
 
-        res.status(200).json(products);
+        res.status(200).json(products)
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: 'Erro interno' });
+        console.error(err)
+        res.status(500).json({ message: 'Erro interno' })
     }
 });
 

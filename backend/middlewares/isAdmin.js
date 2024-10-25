@@ -1,0 +1,27 @@
+import jwt from 'jsonwebtoken';
+
+const isAdmin = (req, res, next) => {
+  const token = req.headers['authorization']?.split(' ')[1]; // Pega o token do cabeçalho Authorization
+
+  if (!token) {
+    return res.status(403).json({ message: 'Acesso negado. Token não fornecido.' });
+  }
+
+  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return res.status(403).json({ message: 'Token inválido.' });
+    }
+
+    // Verifica se o usuário é admin
+    if (!decoded.isAdmin) {
+      return res.status(403).json({ message: 'Acesso negado. Você não tem permissão.' });
+    }
+
+    // Adiciona informações do usuário ao request
+    req.userId = decoded.userId;
+    req.isAdmin = decoded.isAdmin;
+    next(); // Chama o próximo middleware ou rota
+  });
+};
+
+export default isAdmin;
