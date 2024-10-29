@@ -13,6 +13,9 @@ const InputText = forwardRef((props, ref) => {
                 className={props.inputClassName}
                 placeholder={props.placeholder}
                 ref={ref}
+                name={props.name}
+                value={props.value}
+                onChange={props.onChange}
             />
             {props.icon}
         </div>

@@ -18,6 +18,9 @@ model User {
   email    String   @unique
   name     String
   password String
+  imgPerfil String?
+  endereco String?
+  numero Int?
   isAdmin  Boolean  @default(false)
   orders   Order[]  // Relação com pedidos
 }

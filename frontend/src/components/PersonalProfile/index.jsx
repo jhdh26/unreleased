@@ -7,6 +7,7 @@ import { IoPhonePortrait } from "react-icons/io5";
 import { IoMailUnread } from "react-icons/io5";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { useAuth } from '../../components/AuthContext/AuthContext'
 
 import InputText from '../../components/InputText'
 import { useNavigate } from 'react-router-dom';
@@ -14,12 +15,19 @@ import { useNavigate } from 'react-router-dom';
 const PersonalProfile = (props) => {
 
     const navigate = useNavigate()
+    const { logout } = useAuth()
+
     const onNavigate = () => {
         navigate('/')
     }
 
     const navigatePedidos = () => {
         navigate('/pedidos')
+    }
+
+    const handleLogout = () => {
+        logout()
+        navigate('/')
     }
 
     const [popup, setPopup] = useState(false)
@@ -66,7 +74,7 @@ const PersonalProfile = (props) => {
                                     <MdExitToApp className='logout-icon' />
                                     <h1>Logout</h1>
                                     <h2>Voce tem certeza que quer fazer o logout?</h2>
-                                    <button className='modal-btn-logout' onClick={onNavigate}>Logout</button>
+                                    <button className='modal-btn-logout' onClick={handleLogout}>Logout</button>
                                     <button className='modal-btn-cancel' onClick={closeModal}>Cancelar</button>
                                 </div>
                             </Modal>
@@ -106,6 +114,15 @@ const PersonalProfile = (props) => {
                             />
                         </div>
                     </div>
+                    <div className="right-profile-password-low">
+                        <InputText
+                            inputClassName='input-text-profile-low'
+                            placeholder='Insira seu endereço'
+                            nameClassName=''
+                            type='text'
+                            label='Insira seu endereço'
+                        />
+                    </div>
                     <div className="right-profile-password">
                         <div className="right-profile-password-top">
                             <InputText
@@ -120,15 +137,6 @@ const PersonalProfile = (props) => {
                                 placeholder='Insira a nova senha'
                                 type='password'
                                 nameClassName='name-profile'
-                                label='Nova senha'
-                            />
-                        </div>
-                        <div className="right-profile-password-low">
-                            <InputText
-                                inputClassName='input-text-profile-low'
-                                placeholder='Insira novamente sua nova senha'
-                                nameClassName=''
-                                type='password'
                                 label='Nova senha'
                             />
                         </div>

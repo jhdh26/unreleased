@@ -1,4 +1,5 @@
 import express from 'express'
+import authenticateToken from '../middlewares/isAdmin.js'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -7,7 +8,7 @@ const router = express.Router()
 
 //ADICIONAR ITEM
 
-router.post('/registroitens' , async (req,res) => {
+router.post('/registroitens',authenticateToken, async (req,res) => {
     try{
 
         const products = req.body
@@ -31,7 +32,7 @@ router.post('/registroitens' , async (req,res) => {
 
 //ATUALIZAR ITEM
 
-router.put('/registroitens/:id' , async (req,res) => {
+router.put('/registroitens/:id', authenticateToken, async (req,res) => {
     try{
 
         const products = req.body
@@ -58,7 +59,7 @@ router.put('/registroitens/:id' , async (req,res) => {
 
 //DELETAR ITEM
 
-router.delete('/registroitens/:id' , async (req,res) => {
+router.delete('/registroitens/:id',  async (req,res) => {
     try{
 
         const products = req.body
@@ -75,7 +76,7 @@ router.delete('/registroitens/:id' , async (req,res) => {
     }
 })
 
-router.get('/registroitens', async (req, res) => {
+router.get('/registroitens',  async (req, res) => {
     try {
         const products = await prisma.products.findMany()
 
