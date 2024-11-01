@@ -1,4 +1,3 @@
-// src/services/api.js
 import axios from 'axios';
 
 // Define a URL base da API
@@ -18,11 +17,16 @@ export const loginUser = async (credentials) => {
     return response.data; // A resposta deve incluir { token, userId }
 };
 
-// Função para obter os dados do usuário
-export const getUserData = async (userId) => {
-    const response = await api.get(`/profile/${userId}`); // Chamada para a rota que retorna os dados do perfil
-    return response.data;
+export const getUserProfile = async (token) => {
+    const response = await api.get('/profile', {
+        headers: {
+            Authorization: `Bearer ${token}`, // Adicione o token no cabeçalho da requisição
+        },
+    });
+    return response.data; // Retorne os dados do perfil
 };
+
+
 
 // Exporta o axios para uso em outros arquivos, se necessário
 export default api;

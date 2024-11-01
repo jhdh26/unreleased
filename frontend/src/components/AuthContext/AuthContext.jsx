@@ -6,38 +6,37 @@ export const AuthContext = createContext();
 
 // Criação do AuthProvider
 export const AuthProvider = ({ children }) => {
-    // Armazenar informações de autenticação
     const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
-    const [userId, setUserId] = useState(null); // Adicione o estado para o userId
+    const [userId, setUserId] = useState(localStorage.getItem('userId')); // Inicializa com o userId do localStorage
 
     // Função de login
-    const login = (id) => { // Modifique para aceitar um id
+    const login = ({ token, id }) => { // Aceita um objeto com token e id
         setIsAuthenticated(true);
-        setUserId(id); // Defina o userId
-        localStorage.setItem('token', 'seu_token_aqui'); // Armazene o token
-        localStorage.setItem('userId', id); // Armazene o userId no localStorage, se necessário
+        setUserId(id); // Define o userId
+        localStorage.setItem('token', token); // Armazena o token
+        localStorage.setItem('userId', id); // Armazena o userId
     };
 
     // Função de logout
     const logout = () => {
         setIsAuthenticated(false);
-        setUserId(null); // Limpe o userId
-        localStorage.removeItem('token'); // Remova o token
-        localStorage.removeItem('userId'); // Remova o userId do localStorage, se necessário
+        setUserId(null);
+        localStorage.removeItem('token');
+        localStorage.removeItem('userId');
     };
 
     // Verifica se o usuário está autenticado ao carregar a aplicação
     useEffect(() => {
         const token = localStorage.getItem('token');
-        const storedUserId = localStorage.getItem('userId'); // Obtenha o userId do localStorage
+        const storedUserId = localStorage.getItem('userId');
         if (token) {
             setIsAuthenticated(true);
-            setUserId(storedUserId); // Defina o userId se o token existir
+            setUserId(storedUserId);
         }
     }, []);
 
     return (
-        <AuthContext.Provider value={{ isAuthenticated, userId, login, logout }}> {/* Adicione userId aqui */}
+        <AuthContext.Provider value={{ isAuthenticated, userId, login, logout }}>
             {children}
         </AuthContext.Provider>
     );

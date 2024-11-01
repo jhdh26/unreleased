@@ -52,7 +52,9 @@ const FormLogin = () => {
 
             try {
                 const response = await loginUser({ email, password });
-                login(response.userId); // Utilize a função de login do AuthContext
+                login(response); // Chama a função de login com o objeto que contém token e userId
+                localStorage.setItem('token', response.token); // Armazena o token no localStorage
+                localStorage.setItem('userId', response.userId); // Armazena o userId no localStorage
                 navigate('/principal'); // Redireciona para a página principal
             } catch (error) {
                 setErrorMessage(error.response?.data?.message || 'Erro ao realizar login.');
@@ -129,7 +131,7 @@ const FormLogin = () => {
                     <Button
                         onClick={onButtonHandle}
                         text='criar'
-                        type='button' // Mantenha como "button" para não causar reload
+                        type='button' 
                     />
                     <div className="account-container">
                         <label className='first-label'>Já tem conta em nosso site?</label>
@@ -165,7 +167,7 @@ const FormLogin = () => {
                         onChange={handleChange}
                     />
                     <Button
-                        type="submit" // Mantenha como "submit" para o formulário de login
+                        type="submit"
                         text='entrar'
                     />
                     <div className="account-container">

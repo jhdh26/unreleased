@@ -1,5 +1,5 @@
 import express from 'express'
-import authenticateToken from '../middlewares/isAdmin.js'
+import authenticateToken from '../middlewares/authenticateToken.js'
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
@@ -8,7 +8,7 @@ const router = express.Router()
 
 //ADICIONAR ITEM
 
-router.post('/registroitens',authenticateToken, async (req,res) => {
+router.post('/registroitens', authenticateToken, async (req,res) => {
     try{
 
         const products = req.body
