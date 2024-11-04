@@ -3,37 +3,46 @@ import './ModalLogout.css';
 import { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { MdExitToApp } from "react-icons/md";
-import { IoPhonePortrait } from "react-icons/io5";
-import { IoMailUnread } from "react-icons/io5";
+import { IoPhonePortrait, IoMailUnread } from "react-icons/io5";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { MdAddAPhoto } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineShoppingBag } from "react-icons/md";
 import { useAuth } from '../../components/AuthContext/AuthContext';
 import InputText from '../../components/InputText';
 import { useNavigate } from 'react-router-dom';
-import { getUserProfile } from '../../services/api'; // Altere a importação aqui
+import { getUserProfile, updateUserProfile, deleteProfilePicture } from '../../services/api'; // Importa a nova função
 
 const PersonalProfile = () => {
     const navigate = useNavigate();
-    const { logout, userId } = useAuth(); // Obtenha o userId do AuthContext
-
-    const [profile, setProfile] = useState(null);
+    const { logout } = useAuth();
+    const [profile, setProfile] = useState({});
     const [popup, setPopup] = useState(false);
+
+    // Estados de entrada para edição de perfil
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [imgPerfil, setImgPerfil] = useState('');
 
     // Função para buscar o perfil do usuário
     const fetchUserProfile = async () => {
         try {
-            const userProfile = await getUserProfile(); // Remova o userId, use o token
-            console.log('Perfil do usuário:', userProfile);
-            setProfile(userProfile);
+            const userProfile = await getUserProfile();
+            setProfile(userProfile.data);
+            setEmail(userProfile.data.email || '');
+            setPhone(userProfile.data.numero || '');
+            setEndereco(userProfile.data.endereco || '');
+            setImgPerfil(userProfile.data.imgPerfil || '');
         } catch (error) {
             console.error('Erro ao buscar perfil:', error);
         }
     };
 
     useEffect(() => {
-        const token = localStorage.getItem('token'); // Obtenha o token do localStorage
+        const token = localStorage.getItem('token');
         if (token) {
-            fetchUserProfile(); // Chame a função quando o token estiver disponível
+            fetchUserProfile();
         }
     }, []);
 
@@ -49,16 +58,28 @@ const PersonalProfile = () => {
         navigate('/pedidos');
     };
 
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value);
+    const handleSaveChanges = async () => {
+        try {
+            const updatedProfile = { email, numero: phone, endereco, imgPerfil };
+            await updateUserProfile(updatedProfile);
+            alert('Perfil atualizado com sucesso!');
+            fetchUserProfile(); // Recarrega o perfil atualizado
+        } catch (error) {
+            console.error('Erro ao atualizar perfil:', error);
+            alert('Erro ao atualizar perfil. Tente novamente.');
+        }
     };
-    
-    const handlePhoneChange = (e) => {
-        setPhone(e.target.value);
-    };
-    
-    const handleEnderecoChange = (e) => {
-        setEndereco(e.target.value);
+
+    const handleDeleteProfilePicture = async () => {
+        try {
+            await deleteProfilePicture(); // Chama a função para deletar a foto
+            setImgPerfil(''); // Limpa o estado da imagem
+            alert('Foto de perfil excluída com sucesso!');
+            fetchUserProfile(); // Recarrega o perfil para refletir a exclusão
+        } catch (error) {
+            console.error('Erro ao excluir foto de perfil:', error);
+            alert('Erro ao excluir foto de perfil. Tente novamente.');
+        }
     };
 
     return (
@@ -101,15 +122,15 @@ const PersonalProfile = () => {
                         </div>
                         <div className="right-profile-items">
                             <div className="items-left-profile">
-                                <img src={profile ? profile.imgPerfil : 'default-profile-pic-url.png'} alt="Profile" />
+                                <img src={profile.imgPerfil || 'default-profile-pic-url.png'} alt="Profile" />
                                 <div className="left-profile-text">
-                                    <h1>{profile ? profile.name : 'Carregando...'}</h1>
-                                    <h2>{profile ? profile.endereco : ''}</h2>
+                                    <h1>{profile.name || 'Carregando...'}</h1>
+                                    <h2>{profile.endereco || ''}</h2>
                                 </div>
                             </div>
                             <div className="items-right-profile">
                                 <button className='btn-left'>Adicionar nova foto</button>
-                                <button className='btn-right'>Excluir foto</button>
+                                <button className='btn-right' onClick={handleDeleteProfilePicture}>Excluir foto</button>
                             </div>
                         </div>
                     </div>
@@ -121,10 +142,23 @@ const PersonalProfile = () => {
                                 nameClassName='name-profile'
                                 label='Mail'
                                 icon={<IoMailUnread className='form-icon-profile' />}
-                                value={profile ? profile.email : ''}
-                                onChange={handleEmailChange}
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                             />
                         </div>
+                        <div className="right-profile-input-phone">
+                            <InputText
+                                inputClassName='input-text-profile'
+                                placeholder='Insira a URL da sua foto'
+                                nameClassName='name-profile'
+                                label='Foto'
+                                icon={<MdAddAPhoto className='form-icon-profile' />}
+                                value={imgPerfil}
+                                onChange={(e) => setImgPerfil(e.target.value)}
+                            />
+                        </div>
+                    </div>
+                    <div className='right-profile-inputs'>
                         <div className="right-profile-input-phone">
                             <InputText
                                 inputClassName='input-text-profile'
@@ -132,43 +166,25 @@ const PersonalProfile = () => {
                                 nameClassName='name-profile'
                                 label='Numero'
                                 icon={<IoPhonePortrait className='form-icon-profile' />}
-                                value={profile ? profile.numero : ''}
-                                onChange={handlePhoneChange}
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
                             />
                         </div>
-                    </div>
-                    <div className="right-profile-password-low">
-                        <InputText
-                            inputClassName='input-text-profile-low'
-                            placeholder='Insira seu endereço'
-                            nameClassName=''
-                            type='text'
-                            label='Insira seu endereço'
-                            value={profile ? profile.endereco : ''}
-                            onChange={handleEnderecoChange}
-                        />
-                    </div>
-                    <div className="right-profile-password">
-                        <div className="right-profile-password-top">
+                        <div className="right-profile-input-phone">
                             <InputText
                                 inputClassName='input-text-profile'
-                                placeholder='Insira sua senha atual'
-                                type='password'
+                                placeholder='Insira seu endereço'
                                 nameClassName='name-profile'
-                                label='Senha'
-                            />
-                            <InputText
-                                inputClassName='input-text-profile'
-                                placeholder='Insira a nova senha'
-                                type='password'
-                                nameClassName='name-profile'
-                                label='Nova senha'
+                                label='Endereço'
+                                icon={<FaMapMarkerAlt className='form-icon-profile' />}
+                                value={endereco}
+                                onChange={(e) => setEndereco(e.target.value)}
                             />
                         </div>
                     </div>
                     <div className="save-changes">
                         <button className='btn-delete'>Cancelar</button>
-                        <button className='btn-att'>Atualizar</button>
+                        <button className='btn-att' onClick={handleSaveChanges}>Atualizar</button>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@ Navegue ate o backend:
 npm i
 Navegue ate o frontend:
 npm i
+
 -- 2 --
 No backend, crie ou edito o arquivo '.env' e coloque esse codigo:
 

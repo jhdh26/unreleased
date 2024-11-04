@@ -33,7 +33,7 @@ const Card = (props) => {
                 <Modal
                     isOpen={modalOpen}
                     onRequestClose={closeModal}
-                    contentLabel='Compre aqui'
+                    contentLabel='Alugue aqui'
                     className='customModal'
                     overlayClassName='customOverlay'
                 >
@@ -44,7 +44,7 @@ const Card = (props) => {
                     <img src={props.imagem} alt={props.nome} />
                     <p>{props.desc}</p>
                     <h2>{props.preco}</h2>
-                    <button className='rent-button' onClick={closeModal}>Comprar</button>
+                    <button className='rent-button' onClick={props.onClick}>Alugar</button>
                 </Modal>
             </div>
         </div>

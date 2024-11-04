@@ -1,0 +1,48 @@
+.main-pagamento{
+    display: flex;
+    justify-content: center;
+}
+
+.payment{
+    width: 95vw;
+    height: 85vh;
+    margin: 2vw 1vw;
+    background-color: #E1BB80;
+    border-radius: 1vw;
+}
+
+.payment-header{
+    background-color: #f1ca8f;
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-methods{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 25px;
+}
+
+.payment-card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.payment-text1-grey{
+    font-size: 1rem;
+    color: #515151;
+}
+
+.payment-text2-green{
+    font-size: 3rem;
+    color: #5dc1b9;
+}
+
+.payment-text2-grey{
+    font-size: 3rem;
+    
+}
+

@@ -7,6 +7,7 @@ import Principal from './pages/Principal';
 import Footer from './components/Footer';
 import Perfil from './pages/Perfil';
 import Pedidos from './pages/Pedidos';
+import Pagamento from './pages/Pagamento'
 import NaoEncontrada from './pages/NaoEncontrada';
 import { AuthProvider } from './components/AuthContext/AuthContext';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
@@ -22,6 +23,7 @@ function Layout() {
                 <Route path='/' element={<Login />} />
                 <Route path='registroitens' element={<PrivateRoute element={<RegistroItens />} />} />
                 <Route path='principal' element={<PrivateRoute element={<Principal />} />} />
+                <Route path='pagamento' element={<PrivateRoute element={<Pagamento/>} /> } />
                 <Route path='alugar' element={<PrivateRoute element={<Alugar />} />} />
                 <Route path='perfil' element={<PrivateRoute element={<Perfil />} />} />
                 <Route path='pedidos' element={<PrivateRoute element={<Pedidos />} />} />
