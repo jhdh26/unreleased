@@ -1,4 +1,5 @@
 import './Alugar.css';
+import { useNavigate } from 'react-router-dom';
 import Card from '../../components/Card';
 import InputText from '../../components/InputText';
 import { useState, useEffect } from 'react';
@@ -9,6 +10,12 @@ const Alugar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const navigate = useNavigate()
+
+    const handleButton = () =>{
+        navigate('/pagamento')
+    }
 
     useEffect(() => {
         async function getProducts() {
@@ -55,6 +62,7 @@ const Alugar = () => {
                             categoria={item.categoria}
                             desc={item.descricao}
                             preco={item.preco}
+                            onClick={handleButton}
                         />
                     ))}
                 </div>

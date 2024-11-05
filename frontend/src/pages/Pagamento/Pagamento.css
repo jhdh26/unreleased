@@ -46,3 +46,49 @@
     
 }
 
+.payment-qr-code{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-qr-code > button{
+    color: white;
+    background-color: #8A05BE;
+    border: none;
+    width: 8vw;
+    height: 5vh;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.payment-div-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 20vw;
+    height: 50vh;
+    border: 1px solid #a7a7a7;
+    background-color: #dcdcdc;
+}
+
+.payment-complete{
+    padding-top: 10px;
+    padding-right: 13vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.payment-complete > button{
+    border: none;
+    border-radius: 6px;
+    width: 20vw;
+    height: 7vh;
+    cursor: pointer;
+    color: #000;
+    background-color: #5dc1b9;
+}

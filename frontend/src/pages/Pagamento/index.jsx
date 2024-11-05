@@ -1,4 +1,5 @@
 import './Pagamento.css'
+import QRCode from 'react-qr-code'
 
 import PaymentCard from '../../components/PaymentCard'
 
@@ -31,14 +32,28 @@ const Pagamento = () => {
                         />
                     </div>
                     <div className="payment-qr-code">
-                        <h1>QRCODE</h1>
+                        <h1>QR Code:</h1>
+                        <QRCode
+                            value='www.google.com'
+                            size={256}
+                            style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+                            viewBox={`0 0 256 256`}
+                        />
+                        <button>COPIAR CODIGO</button>
                     </div>
                     <div className="payment-info">
                         <div className="payment-div-info">
                             <h1>PRODUTO:</h1>
-                            
+                            <h2>Nome</h2>
+                            <h2>Imagem</h2>
+                            <h2>Preco</h2>
+                            <h2>Quantidade</h2>
                         </div>
                     </div>
+                </div>
+                <div className="payment-complete">
+                    <h1>JÁ PAGOU?</h1>
+                    <button> CONFIRME SUA COMPRA AQUI</button>
                 </div>
             </div>
         </div>
