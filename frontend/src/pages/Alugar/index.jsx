@@ -35,38 +35,31 @@ const Alugar = () => {
             setError("Usuário não autenticado.");
             return;
         }
-
-        console.log(productId)
-        
+    
         try {
-            // Definindo quantidade de dias para o aluguel
-            const diasAluguel = 3;
-
-            // Criando o pedido com o ID do produto e a quantidade de dias para o aluguel
+            const diasAluguel = 7;  // Aqui você define os dias de aluguel
+    
             const response = await api.post('/orders/create', {
-                productId,   // ID do produto
-                diasAluguel  // Quantidade de dias para o aluguel
+                productId,   // Enviando o productId
+                diasAluguel  // Enviando os dias de aluguel
             }, {
                 headers: {
                     Authorization: `Bearer ${token}`  // Adicionando o token JWT ao cabeçalho da requisição
                 }
             });
-
-            
-
-            // Supondo que a resposta contenha o ID do pedido
+    
             const orderId = response.data.id;
-
+    
             console.log("Pedido criado:", response.data); // Verificando a resposta da API
-
+    
             // Redirecionando para a página de pagamento com o ID da ordem
-            // navigate(`/pagamento/${orderId}`);
+            navigate(`/pagamento/${orderId}`);
         } catch (error) {
             console.error("Erro ao alugar o produto:", error);
             setError("Não foi possível criar o pedido.");
         }
     };
-
+    
     const filteredItems = items.filter(item =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
         item.categoria.toLowerCase().includes(searchTerm.toLowerCase())

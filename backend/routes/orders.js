@@ -6,14 +6,17 @@ const router = express.Router();
 const prisma = new PrismaClient();
 
 router.post('/orders/create', authenticateToken, async (req, res) => {
-    const { userId } = req.user;
-    const { productId, diasAluguel } = req.body;  // Recebe os dados diretamente do corpo da requisição
+    const { userId } = req.user;  // O ID do usuário vem do payload do token
+    const { productId, diasAluguel } = req.body;  // Recebe o ID do produto e os dias de aluguel
 
     console.log('Dados recebidos:', { userId, productId, diasAluguel });
 
     try {
+        // Aqui, o Prisma vai automaticamente lidar com a conversão de string para ObjectId
         const product = await prisma.products.findUnique({
-            where: { id: productId }
+            where: {
+                id: productId // O Prisma lida com a conversão automaticamente
+            }
         });
 
         if (!product) {
@@ -23,7 +26,7 @@ router.post('/orders/create', authenticateToken, async (req, res) => {
         const newOrder = await prisma.order.create({
             data: {
                 userId,
-                productId,
+                productId,  // O Prisma vai entender automaticamente o tipo
                 diasAluguel,
             },
             include: {
