@@ -21,7 +21,7 @@ export const loginUser = async (credentials) => {
 export const getUserProfile = async () => {
     const token = localStorage.getItem('token');
     console.log("Token enviado:", token); // Verifique se o token está presente e correto
-    
+
     try {
         const response = await api.get('/profile', {
             headers: {
@@ -43,7 +43,7 @@ export const getUserProfile = async () => {
 export const updateUserProfile = async (userData) => {
     const token = localStorage.getItem('token');
     console.log("Token enviado para atualização:", token); // Verifique se o token está presente e correto
-    
+
     try {
         const response = await api.put('/profile', userData, {
             headers: {
@@ -65,7 +65,7 @@ export const updateUserProfile = async (userData) => {
 export const deleteProfilePicture = async () => {
     const token = localStorage.getItem('token');
     console.log("Token enviado para exclusão da imagem:", token); // Verifique se o token está presente e correto
-    
+
     try {
         const response = await api.delete('/profile/image', {
             headers: {
@@ -82,6 +82,29 @@ export const deleteProfilePicture = async () => {
         throw error; // Opcional: Rejoga o erro para tratamento posterior
     }
 };
+
+// api.js
+
+export const createOrder = async (productId, diasAluguel) => {
+    const token = localStorage.getItem('token'); // Obtém o token de autenticação
+
+    try {
+        const response = await api.post('/orders/create', {  // Não passa mais o productId na URL
+            productId,  // Agora é passado no corpo da requisição
+            diasAluguel
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return response.data; // Retorna os dados da resposta da API (inclui o ID da ordem)
+    } catch (error) {
+        console.error("Erro ao criar pedido:", error);
+        throw error; // Rejoga o erro para que possa ser tratado em outro lugar, se necessário
+    }
+};
+
+
 
 // Exporta o axios para uso em outros arquivos, se necessário
 export default api;

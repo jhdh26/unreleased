@@ -23,7 +23,7 @@ function Layout() {
                 <Route path='/' element={<Login />} />
                 <Route path='registroitens' element={<PrivateRoute element={<RegistroItens />} />} />
                 <Route path='principal' element={<PrivateRoute element={<Principal />} />} />
-                <Route path='pagamento' element={<PrivateRoute element={<Pagamento/>} /> } />
+                <Route path='pagamento/:id' element={<PrivateRoute element={<Pagamento/>} /> } />
                 <Route path='alugar' element={<PrivateRoute element={<Alugar />} />} />
                 <Route path='perfil' element={<PrivateRoute element={<Perfil />} />} />
                 <Route path='pedidos' element={<PrivateRoute element={<Pedidos />} />} />

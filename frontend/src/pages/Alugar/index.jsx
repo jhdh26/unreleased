@@ -1,8 +1,7 @@
-import './Alugar.css';
 import { useNavigate } from 'react-router-dom';
-import Card from '../../components/Card';
-import InputText from '../../components/InputText';
 import { useState, useEffect } from 'react';
+import InputText from '../../components/InputText';
+import Card from '../../components/Card';
 import api from '../../services/api.js';
 
 const Alugar = () => {
@@ -10,12 +9,10 @@ const Alugar = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
-
-    const handleButton = () =>{
-        navigate('/pagamento')
-    }
+    // Supondo que o token JWT seja armazenado no localStorage
+    const token = localStorage.getItem('token');    // Obtendo o token JWT
 
     useEffect(() => {
         async function getProducts() {
@@ -32,6 +29,43 @@ const Alugar = () => {
 
         getProducts();
     }, []);
+
+    const handleRent = async (productId) => {
+        if (!token) {
+            setError("Usuário não autenticado.");
+            return;
+        }
+
+        console.log(productId)
+        
+        try {
+            // Definindo quantidade de dias para o aluguel
+            const diasAluguel = 3;
+
+            // Criando o pedido com o ID do produto e a quantidade de dias para o aluguel
+            const response = await api.post('/orders/create', {
+                productId,   // ID do produto
+                diasAluguel  // Quantidade de dias para o aluguel
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`  // Adicionando o token JWT ao cabeçalho da requisição
+                }
+            });
+
+            
+
+            // Supondo que a resposta contenha o ID do pedido
+            const orderId = response.data.id;
+
+            console.log("Pedido criado:", response.data); // Verificando a resposta da API
+
+            // Redirecionando para a página de pagamento com o ID da ordem
+            // navigate(`/pagamento/${orderId}`);
+        } catch (error) {
+            console.error("Erro ao alugar o produto:", error);
+            setError("Não foi possível criar o pedido.");
+        }
+    };
 
     const filteredItems = items.filter(item =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -62,7 +96,7 @@ const Alugar = () => {
                             categoria={item.categoria}
                             desc={item.descricao}
                             preco={item.preco}
-                            onClick={handleButton}
+                            onClick={() => handleRent(item.id)} // Chama handleRent com o ID do produto
                         />
                     ))}
                 </div>
