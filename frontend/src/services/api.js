@@ -105,6 +105,53 @@ export const createOrder = async (productId, diasAluguel) => {
 };
 
 
+export const getOrder = async (orderId) => {
+    const token = localStorage.getItem('token');
+    try {
+        const response = await api.get(`/orders/create/${orderId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        return response.data;
+    } catch (error) {
+        console.error("Erro ao buscar detalhes do pedido:", error);
+        throw error; // Rethrow para tratamento posterior
+    }
+};
+
+export const decreaseProductQuantity = async (productId, quantity) => {
+    try {
+        const response = await api.patch(`/products/${productId}/decrease`, { quantity });
+        return response.data; // Retorna os dados da resposta
+    } catch (err) {
+        console.error("Erro ao diminuir quantidade do produto", err);
+        throw err; // Lança o erro para ser tratado no frontend
+    }
+};
+
+// api.js
+
+// Função para buscar os pedidos do usuário
+export const getUserOrders = async () => {
+    const token = localStorage.getItem('token'); // Obtém o token de autenticação
+
+    try {
+        const response = await api.get('/orders/user', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        return response.data; // Retorna os pedidos do usuário
+    } catch (error) {
+        console.error("Erro ao buscar os pedidos:", error);
+        throw error; // Lança o erro para ser tratado no frontend
+    }
+};
+
+
+
 
 // Exporta o axios para uso em outros arquivos, se necessário
 export default api;

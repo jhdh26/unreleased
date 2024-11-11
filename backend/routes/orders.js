@@ -88,7 +88,36 @@ router.get('/orders/create/:id', authenticateToken, async (req, res) => {
     }
 });
 
+// Exemplo de rota para atualizar a quantidade do produto
+router.put('/products/:productId/decrease', async (req, res) => {
+    const { productId } = req.params;
+    try {
+        // Verifique se o produto existe
+        const product = await prisma.products.findUnique({
+            where: { id: productId },
+        });
 
-  
+        if (!product) {
+            return res.status(404).json({ error: "Produto não encontrado." });
+        }
+
+        // Se o produto existir, diminua a quantidade
+        const updatedProduct = await prisma.products.update({
+            where: { id: productId },
+            data: {
+                quantidade: {
+                    decrement: 1,
+                },
+            },
+        });
+
+        res.status(200).json(updatedProduct);
+    } catch (error) {
+        console.error("Erro ao atualizar a quantidade do produto:", error);
+        res.status(500).json({ error: "Erro ao processar a requisição." });
+    }
+});
+
+
 
 export default router;

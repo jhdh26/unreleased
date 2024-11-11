@@ -1,6 +1,7 @@
 -- 1 --
 Navegue ate o backend:
 npm i
+npm i prisma bcrypt cors dotenv express jsonwebtoken uuid
 Navegue ate o frontend:
 npm i
 

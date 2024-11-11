@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import './Alugar.css'
 import InputText from '../../components/InputText';
 import Card from '../../components/Card';
 import api from '../../services/api.js';
@@ -72,7 +73,7 @@ const Alugar = () => {
                     <InputText
                         type='text'
                         placeholder='Pesquise por nome'
-                        inputClassName='input-text-form-login'
+                        inputClassName='input-text-form-search'
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />

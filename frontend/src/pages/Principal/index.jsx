@@ -7,7 +7,6 @@ import { VscTools } from "react-icons/vsc";
 import { GiCommercialAirplane } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import betoneira from '../../assets/betoneira.png' // Remova este se não precisar
 import api from '../../services/api.js'
 
 const Principal = () => {
@@ -89,6 +88,7 @@ const Principal = () => {
                             categoria={item.categoria}
                             desc={item.desc}
                             preco={item.preco}
+                            onClick={onButtonHandle}
                         />
                     ))}
                 </div>
