@@ -91,7 +91,7 @@ const MyOrders = () => {
                             filteredPedidos.map((pedido) => (
                                 <div className="orders-products-number" key={pedido.id}>
                                     <h1>{pedido.id}</h1>
-                                    <button onClick={() => togglePedido(pedido.id)}>
+                                    <button className='myoders-btn' onClick={() => togglePedido(pedido.id)}>
                                         {pedidoSelecionado === pedido.id ? 'Ocultar' : 'Ver'}
                                     </button>
                                     {pedidoSelecionado === pedido.id && (

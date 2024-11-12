@@ -21,14 +21,24 @@
 
 .payment-methods{
     display: flex;
-    justify-content: space-between;
-    padding: 25px 25px;
+    justify-content: space-around;
+    padding-top: 25px;
 }
 
 .payment-card{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1ca8f;
+    border-radius: 20px;
+    width: 30%;
+    height: 30vw;
+}
+
+.payment-card > h2{
+    font-size: 20px;
 }
 
 .payment-text1-grey{
@@ -51,13 +61,14 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding-top: 40px;
 }
 
 .payment-qr-code > button{
     color: white;
     background-color: #8A05BE;
     border: none;
-    width: 8vw;
+    width: 18vw;
     height: 5vh;
     border-radius: 6px;
     cursor: pointer;

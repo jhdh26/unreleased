@@ -120,15 +120,15 @@ export const getOrder = async (orderId) => {
     }
 };
 
-export const decreaseProductQuantity = async (productId, quantity) => {
+export const decreaseProductQuantity = async (productId) => {
     try {
-        const response = await api.patch(`/products/${productId}/decrease`, { quantity });
-        return response.data; // Retorna os dados da resposta
+        const response = await api.put(`/products/${productId}/decrease`);
+        return response.data;
     } catch (err) {
         console.error("Erro ao diminuir quantidade do produto", err);
-        throw err; // Lança o erro para ser tratado no frontend
+        throw err;
     }
-};
+};  
 
 // api.js
 

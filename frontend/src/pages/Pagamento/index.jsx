@@ -1,6 +1,9 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import QRCode from 'react-qr-code'
 import { useEffect, useState } from 'react';
 import { getOrder, decreaseProductQuantity } from '../../services/api.js';
+
+import './Pagamento.css'
 
 const Pagamento = () => {
     const { id } = useParams();
@@ -10,7 +13,7 @@ const Pagamento = () => {
 
     const navigate = useNavigate()
 
-    const goProfile = () =>{
+    const goProfile = () => {
         navigate('/perfil')
     }
 
@@ -33,14 +36,14 @@ const Pagamento = () => {
 
     const handlePayment = async () => {
         try {
-            await decreaseProductQuantity(order.product.id); // Chama a função para diminuir a quantidade
+            await decreaseProductQuantity(order.product.id);
             window.alert('Pagamento realizado com sucesso!');
-            navigate('/perfil'); // Redireciona após o alert
+            navigate('/perfil');
         } catch (error) {
             console.error("Erro ao processar o pagamento:", error.response?.data || error.message);
             alert("Erro ao processar o pagamento.");
         }
-    };    
+    };
 
     if (loading) return <p>Carregando pedido...</p>;
     if (error) return <p>{error}</p>;
@@ -58,7 +61,13 @@ const Pagamento = () => {
                         <p>Preço: R${order.product.preco}</p>
                         <p>Dias de Aluguel: {order.diasAluguel}</p>
                     </div>
-                    <div className="payment-options">
+                    <div className="payment-qr-code">
+                        <h1>ESCANEIE O QRCODE:</h1>
+                        <QRCode
+                            size={400}
+                            style={{ height: "auto", maxWidth: "70%", width: "70%" }}
+                            value=''
+                        />
                         <button onClick={handlePayment}>Pagar Agora</button>
                     </div>
                 </div>

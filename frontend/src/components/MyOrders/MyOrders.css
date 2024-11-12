@@ -113,6 +113,9 @@
 .orders-products-number {
     display: flex;
     gap: 30px;
+    align-items: center;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 /* Estilo para os detalhes do pedido */
@@ -125,4 +128,15 @@
     color: #2e2e2e;
     font-size: 16px;
     width: 100%;
+}
+
+.myoders-btn{
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #384D6C;
+    cursor: pointer;
+    min-width: 10%;
+    min-height: 5vh;
+
 }
